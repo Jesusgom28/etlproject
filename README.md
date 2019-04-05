@@ -1,3 +1,4 @@
+make a new branch and connect it to the master branch
 1. gpd by country https://www.imf.org/external/pubs/ft/weo/2018/01/weodata/download.aspx
 2. internet users connectivity by country https://data.worldbank.org/indicator/IT.NET.USER.ZS
 3. population data by country https://data.worldbank.org/indicator/sp.pop.totl
