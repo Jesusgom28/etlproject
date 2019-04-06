@@ -7,3 +7,6 @@ what we need
 1. each of us get a dataset to clean data
 2. using mysql or docker we will query 2016 data because that one is complete on all datasets
 3. we will join the dataset we get into one but have a seperate dataset for each one
+
+look at the schema and I think we need to focus on the countries and the gdp so lets look at that 
+also on v2 my branch look at it as an example 
