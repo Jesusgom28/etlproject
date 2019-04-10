@@ -1,22 +1,28 @@
+CREATE DATABASE IF NOT EXISTS etl_db;
+USE etl_db;
 
-CREATE DATABASE IF EXSIT population_db;
-USE population_db;
-
-DROP TABLE 'countries';
-DROP TABLE 'population';
+DROP TABLE IF EXISTS gdp_dollars_2016;
+DROP TABLE IF EXISTS population;
+DROP TABLE IF EXISTS countries;
 
 CREATE TABLE `countries` (
-  `code` varchar(2) NOT NULL,
-  `name` varchar(45) NOT NULL,
-  PRIMARY KEY (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+ `Country_code` varchar(3) NOT NULL,
+ `Country_name` varchar(100) NOT NULL,
+ PRIMARY KEY (`Country_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `population` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `country_code` VARCHAR(2) NOT NULL,
-  `year` INT NOT NULL,
-  `population` INT NOT NULL,
-  PRIMARY KEY (`id`),
-  CONSTRAINT  FOREIGN KEY (`country_code`) REFERENCES `countries` (`code`)  
-);
+ `Country_code` VARCHAR(3) NOT NULL,
+ `Population` FLOAT(30,3),
+ PRIMARY KEY (`Country_code`),
+ CONSTRAINT  FOREIGN KEY (`Country_code`) REFERENCES `countries` (`Country_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `gdp_dollars_2016` (
+ `Country_code` varchar(3) NOT NULL,
+ `Units` varchar(45) NOT NULL,
+ `Scale` varchar(45) NOT NULL,
+ `GDP_2016_USDollars` float(30,10) DEFAULT NULL,
+ PRIMARY KEY (`Country_code`),
+ CONSTRAINT  FOREIGN KEY (`Country_code`) REFERENCES `countries` (`Country_code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
